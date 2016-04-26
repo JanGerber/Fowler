@@ -4,6 +4,7 @@ public class Movie {
     public static final int NEW_RELEASE = 1;
     private String title;
     private int priceCode;
+    private Price price;
     public Movie(String newtitle, int newpriceCode) {
         title = newtitle;
         setPriceCode(priceCode);
@@ -29,14 +30,11 @@ public class Movie {
            throw new IllegalArgumentException("Incorrect Price Code");
         }
     }
-    private Price price;
+    
 	double getCharge(int daysRented) {
 		return price.getCharge(daysRented);
 	}
 	int getFrequentRenterPoints(int daysRented){
-		if ((getPriceCode() == Movie.NEW_RELEASE) && daysRented > 1) 
-	       return 2;
-		else
-			return 1;
+		return price.getFrequentRenterPoints(daysRented);
 	};
 }
