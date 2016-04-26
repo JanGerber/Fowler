@@ -41,8 +41,8 @@ class Customer {
         return result;
     }
 
-    private int amountFor(Rental aRental) {
-        int result = 0;
+    private double amountFor(Rental aRental) {
+        double result = 0;
         switch (aRental.getMovie().getPriceCode()) {
             case Movie.REGULAR:
                 result += 2;
